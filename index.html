@@ -66,10 +66,16 @@
 <script src="https://pl28367845.effectivegatecpm.com/c5/50/00/c55000a444b71daa30647afc88592cc8.js"></script>
         <button class="btn-music" onclick="toggleMusic()" id="mBtn">🎵 ÉCOUTER LE MESSAGE</button>
 
-        <div class="container">
-            <div id="display-name" class="nom-affiche">Chargement...</div>
-            <h1>🌟 MESSAGE DE NOUVEL AN 2026 🌟</h1>
+<div class="container">
+    <div id="display-name" class="nom-affiche">
+        ✨ <span id="user-name">Ami(e)</span> vous envoie ses vœux :
+    </div>
+    <h1>🌟 MESSAGE DE NOUVEL AN 2026 🌟</h1>
 
+    <button onclick="shareOnWhatsApp()" style="background:#25D366; color:white; border:none; padding:10px 20px; border-radius:30px; font-weight:bold; margin-bottom:20px; cursor:pointer;">
+        🟢 Partager sur WhatsApp
+    </button>
+    
             <div class="langue-box">
                 <span class="flag">🇫🇷 Français</span>
                 <p class="message">2026 sera grandiose ! 💪 Avec foi, persévérance et l’espérance au cœur, nous traverserons les défis et goûterons à la beauté de chaque instant. Que cette année soit une source de paix et de bonheur. 💫</p>
@@ -113,6 +119,15 @@
                 document.getElementById("mBtn").innerText = "▶️ REPRENDRE";
             }
         }
+        const displayName = document.getElementById('user-name');
+displayName.innerText = name;
+
+function shareOnWhatsApp() {
+    const shareText = "Regarde ce message de vœux magique pour 2026 ! ✨\n\nClique ici : ";
+    const shareUrl = window.location.href;
+    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText + shareUrl));
+}
+        
     </script>
 </body>
 </html>
